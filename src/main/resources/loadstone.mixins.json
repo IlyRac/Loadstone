@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.ilyrash.loadston.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LodestoneBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"schemaVersion": 1,
+	"id": "loadstone",
+	"version": "1.0",
+	"name": "Load Stone",
+	"description": "Turn Lodestones into chunk loaders",
+	"authors": [
+		"IlyRash"
+	],
+    "custom": {
+      "modmenu": {
+        "links": {
+          "Support-Me": "https://ko-fi.com/ilyrash"
+        }
+      }
+    },
+    "license": "MIT",
+	"icon": "assets/loadstone/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.ilyrash.loadston.LoadStone"
+		],
+		"client": [
+			"com.ilyrash.loadston.LoadStoneClient"
+		],
+		"fabric-datagen": [
+			"com.ilyrash.loadston.LoadStoneDataGenerator"
+		]
+	},
+	"mixins": [
+		"loadstone.mixins.json",
+		{
+			"config": "loadstone.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
