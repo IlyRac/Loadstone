@@ -3,7 +3,7 @@
 	"id": "loadstone",
 	"version": "1.0",
 	"name": "Load Stone",
-	"description": "Turn Lodestones into chunk loaders",
+	"description": "Keep chunks loaded with upgradable Lodestone chunk loaders.",
 	"authors": [
 		"IlyRash"
 	],
