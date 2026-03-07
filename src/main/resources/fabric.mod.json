@@ -1,31 +1,29 @@
 {
 	"schemaVersion": 1,
 	"id": "loadstone",
-	"version": "1.0",
-	"name": "Load Stone",
-	"description": "Keep chunks loaded with upgradable Lodestone chunk loaders.",
+	"version": "${version}",
+	"name": "Loadstone",
+	"description": "Transform vanilla Lodestones into powerful, tiered chunk loaders!",
 	"authors": [
-		"IlyRash"
+		"IlyRac"
 	],
-    "custom": {
-      "modmenu": {
-        "links": {
-          "Support-Me": "https://ko-fi.com/ilyrash"
-        }
-      }
-    },
-    "license": "MIT",
+	"custom": {
+		"modmenu": {
+			"links": {
+				"Support-Me": "https://ko-fi.com/ilyrac",
+				"License": "https://github.com/IlyRac/Terracart/blob/main/LICENSE.md"
+			}
+		}
+	},
+	"license": "IlyRac License",
 	"icon": "assets/loadstone/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.ilyrash.loadston.LoadStone"
+			"com.ilyrac.loadstone.Loadstone"
 		],
 		"client": [
-			"com.ilyrash.loadston.LoadStoneClient"
-		],
-		"fabric-datagen": [
-			"com.ilyrash.loadston.LoadStoneDataGenerator"
+			"com.ilyrac.loadstone.LoadstoneClient"
 		]
 	},
 	"mixins": [
@@ -36,12 +34,9 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.10",
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
 		"java": ">=21",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
