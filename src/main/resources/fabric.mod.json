@@ -3,7 +3,7 @@
 	"id": "loadstone",
 	"version": "${version}",
 	"name": "Loadstone",
-	"description": "Turn vanilla Lodestones into reliable, persistent, tiered chunk loaders to Keep farms, machines, and redstone active while you’re away.",
+	"description": "Turn vanilla Lodestones into reliable, persistent, tiered chunk loaders.",
 	"authors": [
 		"IlyRac"
 	],
