@@ -1,6 +1,6 @@
 # 🧭 Loadstone – Chunk Loader
 
-**Turn Lodestones into persistent chunk loaders. Keep farms, machines, and redstone active while you’re away.**
+**Turn vanilla Lodestones into persistent chunk loaders. Keep farms, machines, and redstone active while you’re away.**
 
 ---
 
@@ -8,7 +8,7 @@
 
 Tired of your farms, machines, or redstone contraptions stopping when you walk away?
 
-**Loadstone** turns vanilla **Lodestones** into simple, reliable **chunk loaders** — activate a Lodestone with a material and the **targeted chunks** stay loaded so your builds keep running.
+**Loadstone** turns vanilla **Lodestones** into simple, reliable **chunk loaders** — activate a Lodestone with a material and the **targeted chunks** stay loaded, so everything in range continues running automatically.
 
 ---
 

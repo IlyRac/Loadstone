@@ -3,7 +3,7 @@
 	"id": "loadstone",
 	"version": "${version}",
 	"name": "Loadstone",
-	"description": "Transform vanilla Lodestones into powerful, tiered chunk loaders!",
+	"description": "Turn vanilla Lodestones into persistent, tiered chunk loaders!",
 	"authors": [
 		"IlyRac"
 	],
