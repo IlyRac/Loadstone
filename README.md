@@ -6,7 +6,7 @@
 
 ## 🎯 What This Mod Does
 
-Tired of your farms, machines, or redstone contraptions stopping when you walk away?  
+Tired of your farms, machines, or redstone contraptions stopping when you walk away?
 
 **Loadstone** turns vanilla **Lodestones** into simple, reliable **chunk loaders** — activate a Lodestone with a material and the **targeted chunks** stay loaded so your builds keep running.
 
@@ -26,9 +26,9 @@ Tired of your farms, machines, or redstone contraptions stopping when you walk a
 - **No Overlaps:** Loaders cannot overlap, preventing multiple loaders from forcing the same chunks.
 
 ---
-
-
-
+![Interacting](https://cdn.modrinth.com/data/cached_images/76fb377ac98223ec58a1257021e11cb4f1198da6.gif)
+![Hud](https://cdn.modrinth.com/data/cached_images/a3747ff5ca50ecd676677b55cbbbbfaed73e4ab3.png)
+![Tiers](https://cdn.modrinth.com/data/cached_images/f5ff46311dc6113f7ee98bbb6741aeb419626ccd.png)
 ---
 
 ## ⚠️ Notes
@@ -69,7 +69,7 @@ Tired of your farms, machines, or redstone contraptions stopping when you walk a
 3. **Right-click** the Lodestone to activate.
 
 ### Deactivation / Change Tier
-- Right-click an active Lodestone with any item (or empty hand) to deactivate — the activation item is returned.
+- Right-click an active Lodestone with empty hand to deactivate — the activation item is returned.
 - Right-click with a different valid material to change tier (old material returned).
 
 ---
