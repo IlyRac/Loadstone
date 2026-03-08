@@ -1,85 +1,116 @@
-# 🧭 Loadstone – Chunk Loader
+<!-- Centered Ko-fi banner + platform buttons -->
+<p align="center">
+  <a href="https://ko-fi.com/ilyrac" target="_blank">
+    <img src="https://cdn.modrinth.com/data/cached_images/f69e87c0cfd3306fa11c3da477e51544c8d380e2_0.webp" alt="Support Me" style="margin-bottom: 10px;">
+  </a>
+  <a href="https://www.curseforge.com/members/ilyrac/projects" target="_blank">
+    <img src="https://i.imgur.com/rpoyjVG.png" alt="CurseForge" style="margin: 0 5px;">
+  </a>
+  <a href="https://modrinth.com/user/ilyrac" target="_blank">
+    <img src="https://i.imgur.com/7fioiRx.png" alt="Modrinth" style="margin: 0 5px;">
+  </a>
+  <a href="https://github.com/IlyRac/FarBlockEntityRendering" target="_blank">
+    <img src="https://i.imgur.com/EYNx6oL.png" alt="GitHub" style="margin: 0 5px;">
+  </a>
+</p>
 
-**Turn vanilla Lodestones into reliable, persistent, tiered chunk loaders to Keep farms, machines, and redstone active while you’re away.**
+<hr>
 
----
+<!-- Mod title -->
+<h1>🧭 Loadstone – Chunk Loader</h1>
 
-## 🎯 What This Mod Does
+<p><strong>Turn vanilla Lodestones into reliable, persistent, tiered chunk loaders to keep farms, machines, and redstone active while you’re away.</strong></p>
 
-Tired of your farms, machines, or redstone contraptions stopping when you walk away?
+<img src="https://cdn.modrinth.com/data/cached_images/76fb377ac98223ec58a1257021e11cb4f1198da6.gif" alt="Interacting" style="max-width:100%;">
 
-**Loadstone** turns vanilla **Lodestones** into simple, reliable **chunk loaders** — activate a Lodestone with a material and the **targeted chunks** stay loaded, so everything in range continues running automatically.
+<hr>
 
----
+<!-- What This Mod Does -->
+<details>
+  <summary>🎯 What This Mod Does</summary>
+  <p>Tired of your farms, machines, or redstone contraptions stopping when you walk away?</p>
+  <p><strong>Loadstone</strong> turns vanilla <strong>Lodestones</strong> into simple, reliable <strong>chunk loaders</strong> — activate a Lodestone with a material and the <strong>targeted chunks</strong> stay loaded, so everything in range continues running automatically.</p>
+</details>
 
-## ✨ Features
+<!-- Features -->
+<details>
+  <summary>✨ Features</summary>
+  <ul>
+    <li><strong>Tiered Chunk Loading:</strong> Switch tiers anytime by using different materials.
+      <ul>
+        <li>⚒️ Iron → <strong>1×1</strong> chunk</li>
+        <li>💎 Diamond → <strong>3×3</strong> chunks</li>
+        <li>🔥 Netherite → <strong>5×5</strong> chunks</li>
+      </ul>
+    </li>
+    <li><strong>Persistent Loader State:</strong> Loaders are saved to disk and manage chunks properly.</li>
+    <li><strong>Smart Material System:</strong> Items are consumed on activation and returned on deactivation.</li>
+    <li><strong>Visual Feedback:</strong> Unique particle effects per tier.</li>
+    <li><strong>Real-Time HUD:</strong> Compact overlay showing loader status, tier, and coverage.</li>
+    <li><strong>No Overlaps:</strong> Loaders cannot overlap, preventing multiple loaders from forcing the same chunks.</li>
+  </ul>
+</details>
 
-- **Tiered Chunk Loading:** Switch tiers anytime by using different materials.
-    - ⚒️ Iron → **1×1** chunk
-    - 💎 Diamond → **3×3** chunks
-    - 🔥 Netherite → **5×5** chunks (reduced from 7×7 in v1.0 for balance & performance)
+<!-- How to Use -->
+<details>
+  <summary>🎮 How to Use</summary>
+  <h3>Activation</h3>
+  <ol>
+    <li>Place a <strong>Lodestone</strong> anywhere in your world.</li>
+    <li>Hold the material for the tier:
+      <ul>
+        <li>⚒️ <strong>Iron Ingot</strong> → 1×1</li>
+        <li>💎 <strong>Diamond</strong> → 3×3</li>
+        <li>🔥 <strong>Netherite Ingot</strong> → 5×5</li>
+      </ul>
+    </li>
+    <li><strong>Right-click</strong> the Lodestone to activate.</li>
+  </ol>
 
-- **Persistent Loader State:** Loaders are saved to disk and manage chunks properly.
-- **Smart Material System:** Items are consumed on activation and returned on deactivation.
-- **Visual Feedback:** Unique particle effects per tier.
-- **Real-Time HUD:** Compact overlay showing loader status, tier, and coverage.
-- **No Overlaps:** Loaders cannot overlap, preventing multiple loaders from forcing the same chunks.
+  <h3>Deactivation / Change Tier</h3>
+  <ul>
+    <li>Right-click an active Lodestone with empty hand to deactivate — the activation item is returned.</li>
+    <li>Right-click with a different valid material to change tier (old material returned).</li>
+  </ul>
+</details>
 
----
-![Interacting](https://cdn.modrinth.com/data/cached_images/76fb377ac98223ec58a1257021e11cb4f1198da6.gif)
-![Hud](https://cdn.modrinth.com/data/cached_images/a3747ff5ca50ecd676677b55cbbbbfaed73e4ab3.png)
-![Tiers](https://cdn.modrinth.com/data/cached_images/f5ff46311dc6113f7ee98bbb6741aeb419626ccd.png)
----
+<!-- Gallery -->
+<details>
+  <summary>🖼️ Gallery</summary>
+  <img src="https://cdn.modrinth.com/data/cached_images/a3747ff5ca50ecd676677b55cbbbbfaed73e4ab3.png" alt="HUD" style="max-width:100%; margin-bottom:10px;">
+  <img src="https://cdn.modrinth.com/data/cached_images/f5ff46311dc6113f7ee98bbb6741aeb419626ccd.png" alt="Tiers" style="max-width:100%;">
+</details>
 
-## ⚠️ Notes
+<!-- Migration -->
+<details>
+  <summary>✈️ Migration from v1.0 ||| ⚠️ VERY IMPORTANT !!!</summary>
+  <p><strong>🚩 Only required for worlds that previously used Loadstone v1.0.</strong></p>
 
-- Loaders keep areas active **24/7**. Use responsibly to avoid server performance issues.
-- **Lodestones only manage chunks they are attached to.** Chunks already loaded by external means (commands, other mods, server tools) are **not automatically owned**. Activating a Lodestone in such a chunk attaches it, allowing the loader to manage it.
+  <ul>
+    <li><strong>Loadstone v1.0</strong> stored loaders only in memory. Because of this, the mod could lose track of active loaders while Minecraft continued keeping the chunks force-loaded.
+      This may create <strong>ghost-loaded chunks</strong> that keep running and may cause lag.</li>
+  </ul>
 
----
+  <p><strong>🔧 One-time Fix (for each world that used v1.0):</strong></p>
+  <ol>
+    <li>Run <code>/forceload remove all</code> (<strong>cheats/admin required</strong>) to clear old forced chunks.
+      <ul>
+        <li>Singleplayer: Pause → <em>Open to LAN</em> → enable <em>Allow Cheats</em> → run the command (cheats are temporary).</li>
+        <li>Server: Use the server console or ask an admin to run the command.</li>
+      </ul>
+    </li>
+    <li>Reactivate your loaders to <strong>register them in Loadstone v2.0</strong>.</li>
+  </ol>
 
-## 📌 Migration from v1.0 (IMPORTANT)
+  <p>🚩 Skipping migration may leave <strong>ghost-loaded chunks</strong> active in your world.</p>
+</details>
 
-> ⚠️ **Only relevant if a world previously used Loadstone v1.0.** New worlds do **not** require migration.  
-> Skipping migration may leave **ghost-loaded chunks** (chunks forced by Minecraft but not owned by any loader), causing lag or unexpected loader behavior.
+<hr>
 
-- **v1.0 limitation:** Loaders were stored only in memory. The mod **forgot which loaders were active**, while Minecraft could still keep chunks **force-loaded**, producing **ghost-loaded chunks**.
-- **v2.0 fix:** Loader state is now **saved and managed properly**. Chunks stay loaded **only while managed by a valid loader**, and unload automatically if the loader becomes **invalid**.
-- **Overlap update:** Loaders cannot overlap, preventing conflicting forced chunks.
-- **Tier change:** Netherite loaders now cover **5×5** chunks for better balance and performance.
-
-**Migration steps (do this once if you used v1.0):**
-1. Run `/forceload remove all` (**cheats/admin required**) to clear old forced chunks.
-    - Singleplayer: Pause → *Open to LAN* → enable *Allow Cheats* → run the command (cheats are temporary).
-    - Server: Use the server console or ask an admin to run the command.
-2. Walk to each Lodestone and activate it with **Iron, Diamond, or Netherite** to register it in v2.0.
-
-> ⚠️ If skipped, leftover forced chunks from v1.0 may remain, causing lag or inconsistent behavior.
-
----
-
-## 🎮 How to Use
-
-### Activation
-1. Place a **Lodestone** anywhere in your world.
-2. Hold the material for the tier:
-    - ⚒️ **Iron Ingot** → 1×1
-    - 💎 **Diamond** → 3×3
-    - 🔥 **Netherite Ingot** → 5×5
-3. **Right-click** the Lodestone to activate.
-
-### Deactivation / Change Tier
-- Right-click an active Lodestone with empty hand to deactivate — the activation item is returned.
-- Right-click with a different valid material to change tier (old material returned).
-
----
-
-## 🔗 Links & Credits
-
-- [💝 Support Me](https://ko-fi.com/ilyrac)
-- [📦 CurseForge](https://www.curseforge.com/members/ilyrac/projects)
-- [📦 Modrinth](https://modrinth.com/user/ilyrac)
-- [🐛 Report Issues](https://github.com/IlyRac/Loadstone/issues)
-- [🔗 Source](https://github.com/IlyRac/Loadstone)
-
-*Fabric API • IlyRac License*
+<!-- Notes -->
+<h2>📌 Notes</h2>
+<ul>
+  <li>Loaders keep areas active <strong>24/7</strong>. Use responsibly to avoid performance issues.</li>
+  <li>Using <strong>Loadstone v1.0</strong> may result in unexpected behavior or performance issues. Upgrading or using <strong>Loadstone  v2.0</strong> is recommended for a stable and consistent experience.</li>
+  <li><strong>Lodestones only manage chunks they are attached to.</strong> Chunks already loaded by external means (commands, other mods, server tools) are <strong>not automatically owned</strong>. Activating a Lodestone in such a chunk attaches it, allowing the loader to manage it.</li>
+</ul>
