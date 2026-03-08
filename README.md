@@ -83,7 +83,7 @@
 
 <!-- Migration -->
 <details>
-  <summary>✈️ Migration from v1.0 ||| ⚠️ VERY IMPORTANT !!!</summary>
+  <summary>✈️ Migration from v1.0 !!! ⚠️ VERY IMPORTANT ⚠️ !!!</summary>
   <p><strong>🚩 Only required for worlds that previously used Loadstone v1.0.</strong></p>
 
   <ul>
