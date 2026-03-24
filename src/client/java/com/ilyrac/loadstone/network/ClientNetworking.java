@@ -9,7 +9,7 @@ public final class ClientNetworking {
     private ClientNetworking() {}
 
     public static void Initializer() {
-        ClientPlayNetworking.registerGlobalReceiver(LoaderUpdateS2CPacket.TYPE, (payload, context) -> {
+        ClientPlayNetworking.registerGlobalReceiver(LoaderUpdateS2CPacket.TYPE, (payload, _) -> {
             // apply on client thread
             Minecraft.getInstance().execute(() -> {
                 if (payload.hasLoader()) {
@@ -22,7 +22,7 @@ public final class ClientNetworking {
 
         ClientPlayNetworking.registerGlobalReceiver(
             LoaderSnapshotS2CPacket.TYPE,
-            (payload, context) -> Minecraft.getInstance().execute(()
+            (payload, _) -> Minecraft.getInstance().execute(()
             ->{
                 ClientLoaderCache.clear();
                 for (LoaderUpdateS2CPacket e : payload.entries()) {

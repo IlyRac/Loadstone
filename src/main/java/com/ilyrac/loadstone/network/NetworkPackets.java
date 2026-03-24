@@ -6,7 +6,7 @@ public final class NetworkPackets {
     private NetworkPackets() {}
 
     public static void Initializer() {
-        PayloadTypeRegistry.playS2C().register(LoaderUpdateS2CPacket.TYPE, LoaderUpdateS2CPacket.STREAM_CODEC);
-        PayloadTypeRegistry.playS2C().register(LoaderSnapshotS2CPacket.TYPE, LoaderSnapshotS2CPacket.STREAM_CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(LoaderUpdateS2CPacket.TYPE, LoaderUpdateS2CPacket.STREAM_CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(LoaderSnapshotS2CPacket.TYPE, LoaderSnapshotS2CPacket.STREAM_CODEC);
     }
 }

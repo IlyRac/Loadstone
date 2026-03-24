@@ -52,8 +52,8 @@ public class PlayerInteractHandler {
 
                     if (!ChunkLoaderManager.canActivate(serverLevel, pos, tier)) {
                         if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
-                            serverPlayer.displayClientMessage(
-                                    Component.literal("Cannot activate loader here: would overlap an existing loader."), true
+                            serverPlayer.sendOverlayMessage(
+                                    Component.literal("Cannot activate loader here: would overlap an existing loader.")
                             );
                         }
                         return InteractionResult.FAIL;
