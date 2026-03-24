@@ -18,7 +18,7 @@ public final class ServerNetworking {
 
     // Call this from Loadstone.onInitialize()
     public static void Initializer() {
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+        ServerPlayConnectionEvents.JOIN.register((handler, _, _) -> {
             ServerPlayer player = handler.getPlayer();
             sendSnapshotTo(player);
         });

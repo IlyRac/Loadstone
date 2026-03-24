@@ -3,14 +3,14 @@ package com.ilyrac.loadstone.loader;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
 import net.minecraft.util.datafix.DataFixTypes;
-import java.util.Map;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class LoadstoneData extends SavedData {
     public final Map<BlockPos, LoaderTier> activeLoaders;
@@ -36,7 +36,7 @@ public class LoadstoneData extends SavedData {
     );
 
     public static final SavedDataType<LoadstoneData> TYPE = new SavedDataType<>(
-            "loadstone_data",
+            Identifier.fromNamespaceAndPath("loadstone", "loadstone_data"),
             LoadstoneData::new,
             CODEC,
             DataFixTypes.LEVEL
@@ -50,9 +50,8 @@ public class LoadstoneData extends SavedData {
         this.activeLoaders = new HashMap<>();
     }
 
-    public static LoadstoneData getServerState(MinecraftServer server) {
-        ServerLevel storageLevel = server.getLevel(Level.OVERWORLD);
-        if (storageLevel == null) return new LoadstoneData();
-        return storageLevel.getDataStorage().computeIfAbsent(TYPE);
+    // CHANGED: We now take the ServerLevel directly to get dimension-specific storage
+    public static LoadstoneData getLevelState(ServerLevel level) {
+        return level.getDataStorage().computeIfAbsent(TYPE);
     }
 }

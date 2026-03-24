@@ -11,11 +11,9 @@ public record LoaderUpdateS2CPacket(BlockPos pos, boolean hasLoader, int ordinal
 
     public static final Identifier ID = Identifier.fromNamespaceAndPath("loadstone", "loader_update");
 
-    // The Type generic mirrors your Terracart style
     public static final CustomPacketPayload.Type<LoaderUpdateS2CPacket> TYPE =
             new CustomPacketPayload.Type<>(ID);
 
-    // Stream codec: write/read pos, boolean, int
     public static final StreamCodec<RegistryFriendlyByteBuf, LoaderUpdateS2CPacket> STREAM_CODEC =
             StreamCodec.of(
                     (buf, pkt) -> {

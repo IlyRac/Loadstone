@@ -1,6 +1,7 @@
 package com.ilyrac.loadstone.loader;
 
 import com.ilyrac.loadstone.network.ServerNetworking;
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -8,15 +9,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.LevelChunk;
+import org.slf4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ChunkLoaderManager {
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     private static LoadstoneData getState(ServerLevel world) {
-        return LoadstoneData.getServerState(world.getServer());
+        return LoadstoneData.getLevelState(world);
     }
 
     public static boolean isActive(ServerLevel world, BlockPos pos) {
@@ -29,32 +33,29 @@ public class ChunkLoaderManager {
 
     public static boolean canActivate(ServerLevel world, BlockPos pos, LoaderTier tier) {
         LoadstoneData state = getState(world);
-
-        // quick empty check
         if (state.activeLoaders.isEmpty()) return true;
 
-        ChunkPos centerNew = new ChunkPos(pos);
+        // Use ChunkPos.containing(pos) for cleaner code
+        ChunkPos centerNew = ChunkPos.containing(pos);
         int rNew = tier.getRadius();
 
         for (Map.Entry<BlockPos, LoaderTier> entry : state.activeLoaders.entrySet()) {
             BlockPos existingPos = entry.getKey();
             LoaderTier existingTier = entry.getValue();
 
-            // If the map accidentally contains a null value, skip
             if (existingPos == null || existingTier == null) continue;
 
-            ChunkPos centerExisting = new ChunkPos(existingPos);
+            ChunkPos centerExisting = ChunkPos.containing(existingPos);
             int rExisting = existingTier.getRadius();
 
-            int dx = Math.abs(centerNew.x - centerExisting.x);
-            int dz = Math.abs(centerNew.z - centerExisting.z);
+            // Access x and z via accessor methods x() and z()
+            int dx = Math.abs(centerNew.x() - centerExisting.x());
+            int dz = Math.abs(centerNew.z() - centerExisting.z());
 
-            // If the chunk-squares overlap on both axes -> intersection
             if (dx <= (rNew + rExisting) && dz <= (rNew + rExisting)) {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -62,15 +63,16 @@ public class ChunkLoaderManager {
         if (tier == null) return;
 
         int radius = tier.getRadius();
-        ChunkPos centerChunk = new ChunkPos(pos);
+        ChunkPos centerChunk = ChunkPos.containing(pos);
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {
-                addChunkTicket(world, new ChunkPos(centerChunk.x + x, centerChunk.z + z));
+                // Accessors: .x() and .z()
+                addChunkTicket(world, new ChunkPos(centerChunk.x() + x, centerChunk.z() + z));
             }
         }
         LoadstoneData state = getState(world);
         state.activeLoaders.put(pos, tier);
-        state.setDirty(); // IMPORTANT: Triggers the save to hard drive
+        state.setDirty();
         ServerNetworking.broadcastUpdate(world, pos, tier);
     }
 
@@ -90,15 +92,14 @@ public class ChunkLoaderManager {
                     dropStack);
             world.addFreshEntity(entity);
         } catch (Throwable t) {
-            //noinspection CallToPrintStackTrace
-            t.printStackTrace();
+            LOGGER.error("Failed to drop activator item at {}", pos, t);
         }
 
         int radius = tier.getRadius();
-        ChunkPos centerChunk = new ChunkPos(pos);
+        ChunkPos centerChunk = ChunkPos.containing(pos);
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {
-                removeChunkTicket(world, new ChunkPos(centerChunk.x + x, centerChunk.z + z));
+                removeChunkTicket(world, new ChunkPos(centerChunk.x() + x, centerChunk.z() + z));
             }
         }
 
@@ -106,13 +107,13 @@ public class ChunkLoaderManager {
     }
 
     private static void addChunkTicket(ServerLevel world, ChunkPos chunkPos) {
-        world.setChunkForced(chunkPos.x, chunkPos.z, true);
-        LevelChunk chunk = world.getChunk(chunkPos.x, chunkPos.z);
+        world.setChunkForced(chunkPos.x(), chunkPos.z(), true);
+        LevelChunk chunk = world.getChunk(chunkPos.x(), chunkPos.z());
         chunk.markUnsaved();
     }
 
     private static void removeChunkTicket(ServerLevel world, ChunkPos chunkPos) {
-        world.setChunkForced(chunkPos.x, chunkPos.z, false);
+        world.setChunkForced(chunkPos.x(), chunkPos.z(), false);
     }
 
     public static Map<BlockPos, LoaderTier> snapshot(ServerLevel world) {
@@ -120,7 +121,6 @@ public class ChunkLoaderManager {
     }
 
     public static void validateAllLoaders(ServerLevel level) {
-
         LoadstoneData state = getState(level);
         if (state.activeLoaders.isEmpty()) return;
         List<BlockPos> toRemove = new ArrayList<>();
