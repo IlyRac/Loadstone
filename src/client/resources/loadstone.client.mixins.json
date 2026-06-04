@@ -3,6 +3,8 @@
 	"package": "com.ilyrac.loadstone.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
+		"ChunkButtonMixin",
+		"MapDimensionMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
