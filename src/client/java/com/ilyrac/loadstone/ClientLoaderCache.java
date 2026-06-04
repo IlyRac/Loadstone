@@ -31,5 +31,18 @@ public final class ClientLoaderCache {
     public static Map<BlockPos, LoaderTier> snapshot() {
         return Map.copyOf(CACHE);
     }
+
+    public static boolean isChunkLoaded(int chunkX, int chunkZ) {
+        for (Map.Entry<BlockPos, LoaderTier> entry : CACHE.entrySet()) {
+            BlockPos bp = entry.getKey();
+            LoaderTier tier = entry.getValue();
+            int dx = Math.abs(chunkX - (bp.getX() >> 4));
+            int dz = Math.abs(chunkZ - (bp.getZ() >> 4));
+            if (dx <= tier.getRadius() && dz <= tier.getRadius()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 

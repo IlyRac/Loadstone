@@ -39,6 +39,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	
+    compileOnly files('libs/ftb-chunks-fabric-26.1.2.3.jar')
 }
 
 processResources {
