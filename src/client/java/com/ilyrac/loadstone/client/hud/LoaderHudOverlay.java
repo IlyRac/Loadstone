@@ -1,6 +1,6 @@
-package com.ilyrac.loadstone.hud;
+package com.ilyrac.loadstone.client.hud;
 
-import com.ilyrac.loadstone.ClientLoaderCache;
+import com.ilyrac.loadstone.client.ClientLoaderCache;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;

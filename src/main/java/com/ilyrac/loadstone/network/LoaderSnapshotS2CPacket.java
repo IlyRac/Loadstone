@@ -14,8 +14,8 @@ public record LoaderSnapshotS2CPacket(List<LoaderUpdateS2CPacket> entries) imple
 
     public static final Identifier ID = Identifier.fromNamespaceAndPath("loadstone", "loader_snapshot");
 
-    public static final CustomPacketPayload.Type<LoaderSnapshotS2CPacket> TYPE =
-            new CustomPacketPayload.Type<>(ID);
+    public static final Type<LoaderSnapshotS2CPacket> TYPE =
+            new Type<>(ID);
 
     // Simple StreamCodec: write count then each entry as (pos,bool,int)
     public static final StreamCodec<RegistryFriendlyByteBuf, LoaderSnapshotS2CPacket> STREAM_CODEC =
@@ -42,7 +42,7 @@ public record LoaderSnapshotS2CPacket(List<LoaderUpdateS2CPacket> entries) imple
             );
 
     @Override
-    public CustomPacketPayload.@NonNull Type<? extends CustomPacketPayload> type() {
+    public @NonNull Type<? extends CustomPacketPayload> type() {
         return TYPE;
     }
 }

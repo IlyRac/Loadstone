@@ -1,7 +1,9 @@
-package com.ilyrac.loadstone.network;
+package com.ilyrac.loadstone.client.network;
 
-import com.ilyrac.loadstone.ClientLoaderCache;
+import com.ilyrac.loadstone.client.ClientLoaderCache;
 import com.ilyrac.loadstone.loader.LoaderTier;
+import com.ilyrac.loadstone.network.LoaderSnapshotS2CPacket;
+import com.ilyrac.loadstone.network.LoaderUpdateS2CPacket;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.Minecraft;
 

@@ -11,8 +11,8 @@ public record LoaderUpdateS2CPacket(BlockPos pos, boolean hasLoader, int ordinal
 
     public static final Identifier ID = Identifier.fromNamespaceAndPath("loadstone", "loader_update");
 
-    public static final CustomPacketPayload.Type<LoaderUpdateS2CPacket> TYPE =
-            new CustomPacketPayload.Type<>(ID);
+    public static final Type<LoaderUpdateS2CPacket> TYPE =
+            new Type<>(ID);
 
     public static final StreamCodec<RegistryFriendlyByteBuf, LoaderUpdateS2CPacket> STREAM_CODEC =
             StreamCodec.of(
@@ -29,7 +29,7 @@ public record LoaderUpdateS2CPacket(BlockPos pos, boolean hasLoader, int ordinal
             );
 
     @Override
-    public CustomPacketPayload.@NonNull Type<? extends CustomPacketPayload> type() {
+    public @NonNull Type<? extends CustomPacketPayload> type() {
         return TYPE;
     }
 }

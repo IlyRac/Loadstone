@@ -5,6 +5,7 @@ import com.ilyrac.loadstone.loader.LoaderTier;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,7 +14,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.network.chat.Component;
 
 public class PlayerInteractHandler {
 
@@ -43,6 +43,7 @@ public class PlayerInteractHandler {
                     ChunkLoaderManager.deactivate((ServerLevel) world, pos);
                     playTierEffects((ServerLevel) world, pos, current);
 
+                    player.swing(hand, true);
                     return InteractionResult.SUCCESS;
                 }
                 return InteractionResult.PASS;
@@ -56,6 +57,8 @@ public class PlayerInteractHandler {
                                     Component.literal("Cannot activate loader here: would overlap an existing loader.")
                             );
                         }
+
+                        player.swing(hand, true);
                         return InteractionResult.FAIL;
                     }
 
