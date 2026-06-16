@@ -1,4 +1,4 @@
-package com.ilyrac.loadstone;
+package com.ilyrac.loadstone.client;
 
 import com.ilyrac.loadstone.loader.LoaderTier;
 import net.minecraft.core.BlockPos;

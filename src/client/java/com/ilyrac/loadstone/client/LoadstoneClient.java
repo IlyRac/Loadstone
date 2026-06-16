@@ -1,7 +1,7 @@
-package com.ilyrac.loadstone;
+package com.ilyrac.loadstone.client;
 
-import com.ilyrac.loadstone.hud.LoaderHudOverlay;
-import com.ilyrac.loadstone.network.ClientNetworking;
+import com.ilyrac.loadstone.client.hud.LoaderHudOverlay;
+import com.ilyrac.loadstone.client.network.ClientNetworking;
 import net.fabricmc.api.ClientModInitializer;
 
 public class LoadstoneClient implements ClientModInitializer {
