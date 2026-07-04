@@ -21,7 +21,7 @@
   <p>Tired of automation, machinery, or redstone contraptions stopping when you walk away?</p>
   <p><strong>Loadstone</strong> turns vanilla <strong>Lodestones</strong> into simple, reliable <strong>chunk loaders</strong>. By activating a Lodestone with a specific material,<strong> the targeted chunks </strong> remain continuously active so everything in range keeps running</p>
 
-<img src="https://i.imgur.com/d7AJBGi.gif" alt="Interacting" style="max-width:100%;">
+<img src="https://github.com/user-attachments/assets/d2dc515d-fefd-4f9a-9175-3197e43da90f" alt="Interact" style="max-width:100%;">
 
 <hr>
 
@@ -76,11 +76,13 @@
 
 <details>
   <summary>🖼️ Gallery</summary>
-  <img src="https://imgur.com/4o0KHp0.png" alt="HUD" style="max-width:100%; margin-bottom:10px;">
-  <img src="https://imgur.com/eABNfGt.png" alt="Tiers" style="max-width:100%; margin-bottom:10px;">
-  <img src="https://imgur.com/na5EzLn.png" alt="Tint" style="max-width:100%; margin-bottom:10px;">  
-  <img src="https://imgur.com/YjbPeB8.png" alt="Config" style="max-width:100%; margin-bottom:10px;">
-  <img src="https://imgur.com/L2dWQLy.png" alt="Commands" style="max-width:100%;">
+  
+  <img style="max-width:100%; margin-bottom:10px;" alt="Hud" src="https://github.com/user-attachments/assets/2ca1e77a-19ee-4d2e-9241-10e0c641fd38" />
+  <img style="max-width:100%; margin-bottom:10px;" alt="Tiers" src="https://github.com/user-attachments/assets/e3c42e7c-2467-4e43-b379-2ecd425f30c0" />
+  <img style="max-width:100%; margin-bottom:10px;" alt="Tint" src="https://github.com/user-attachments/assets/cd9f50d5-37bf-433a-9775-d5d99bad9678" />
+  <img style="max-width:100%; margin-bottom:10px;" alt="ConfigScreen" src="https://github.com/user-attachments/assets/665289f5-30b1-4054-a3ac-2728291898c7" />
+  <img style="max-width:100%;" alt="Commands" src="https://github.com/user-attachments/assets/95e1b092-fe68-4e5c-80b8-4a12a154a57b" />
+
 </details>
 
 <hr>
