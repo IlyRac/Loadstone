@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "com.ilyrac.loadstone.client.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"client": [],
+	"client": [
+		"LodestoneParticleMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},

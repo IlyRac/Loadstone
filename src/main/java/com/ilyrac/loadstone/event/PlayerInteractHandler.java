@@ -4,7 +4,6 @@ import com.ilyrac.loadstone.loader.ChunkLoaderManager;
 import com.ilyrac.loadstone.loader.LoaderTier;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -36,12 +35,12 @@ public class PlayerInteractHandler {
                     ChunkLoaderManager.deactivate((ServerLevel) world, pos);
                     if (!player.isCreative()) held.shrink(1);
                     ChunkLoaderManager.activate((ServerLevel) world, pos, tier);
-                    playTierEffects((ServerLevel) world, pos, tier);
+                    playServerSounds((ServerLevel) world, pos, tier);
 
                     return InteractionResult.SUCCESS;
-                } else if (held.isEmpty()) { // Remove loader
+                } else if (held.isEmpty()) {
                     ChunkLoaderManager.deactivate((ServerLevel) world, pos);
-                    playTierEffects((ServerLevel) world, pos, current);
+                    playServerSounds((ServerLevel) world, pos, current);
 
                     player.swing(hand, true);
                     return InteractionResult.SUCCESS;
@@ -51,7 +50,7 @@ public class PlayerInteractHandler {
                 if (tier != null) {
                     ServerLevel serverLevel = (ServerLevel) world;
 
-                    if (!ChunkLoaderManager.canActivate(serverLevel, pos, tier)) {
+                    if (ChunkLoaderManager.canActivate(serverLevel, pos, tier)) {
                         if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
                             serverPlayer.sendOverlayMessage(
                                     Component.literal("Cannot activate loader here: would overlap an existing loader.")
@@ -64,7 +63,7 @@ public class PlayerInteractHandler {
 
                     ChunkLoaderManager.activate(serverLevel, pos, tier);
                     if (!player.isCreative()) held.shrink(1);
-                    playTierEffects(serverLevel, pos, tier);
+                    playServerSounds(serverLevel, pos, tier);
 
                     return InteractionResult.SUCCESS;
                 } else {
@@ -74,23 +73,11 @@ public class PlayerInteractHandler {
         });
     }
 
-    private static void playTierEffects(ServerLevel world, BlockPos pos, LoaderTier tier) {
+    private static void playServerSounds(ServerLevel world, BlockPos pos, LoaderTier tier) {
         switch (tier) {
-            case IRON -> {
-                world.playSound(null, pos, SoundEvents.IRON_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
-                world.sendParticles(ParticleTypes.SMOKE, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
-                        15, 0.35, 0.35, 0.35, 0.1);
-            }
-            case DIAMOND -> {
-                world.playSound(null, pos, SoundEvents.METAL_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
-                world.sendParticles(ParticleTypes.END_ROD, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
-                        15, 0.35, 0.35, 0.35, 0.1);
-            }
-            case NETHERITE -> {
-                world.playSound(null, pos, SoundEvents.NETHERITE_BLOCK_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
-                world.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
-                        15, 0.35, 0.35, 0.35, 0.1);
-            }
+            case IRON -> world.playSound(null, pos, SoundEvents.IRON_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
+            case DIAMOND -> world.playSound(null, pos, SoundEvents.METAL_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
+            case NETHERITE -> world.playSound(null, pos, SoundEvents.NETHERITE_BLOCK_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
         }
     }
 }

@@ -19,6 +19,7 @@ public class Loadstone implements ModInitializer {
 		NetworkPackets.Initializer();
 		PlayerInteractHandler.Initializer();
 		ServerNetworking.Initializer();
+		LoadstoneCommand.Initializer();
 
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			if (server.getTickCount() % 5 == 0) { // 100 ticks = 5 seconds

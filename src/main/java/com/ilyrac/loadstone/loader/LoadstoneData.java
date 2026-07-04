@@ -50,7 +50,6 @@ public class LoadstoneData extends SavedData {
         this.activeLoaders = new HashMap<>();
     }
 
-    // CHANGED: We now take the ServerLevel directly to get dimension-specific storage
     public static LoadstoneData getLevelState(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(TYPE);
     }
