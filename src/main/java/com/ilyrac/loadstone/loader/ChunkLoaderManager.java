@@ -33,9 +33,8 @@ public class ChunkLoaderManager {
 
     public static boolean canActivate(ServerLevel world, BlockPos pos, LoaderTier tier) {
         LoadstoneData state = getState(world);
-        if (state.activeLoaders.isEmpty()) return true;
+        if (state.activeLoaders.isEmpty()) return false;
 
-        // Use ChunkPos.containing(pos) for cleaner code
         ChunkPos centerNew = ChunkPos.containing(pos);
         int rNew = tier.getRadius();
 
@@ -48,15 +47,14 @@ public class ChunkLoaderManager {
             ChunkPos centerExisting = ChunkPos.containing(existingPos);
             int rExisting = existingTier.getRadius();
 
-            // Access x and z via accessor methods x() and z()
             int dx = Math.abs(centerNew.x() - centerExisting.x());
             int dz = Math.abs(centerNew.z() - centerExisting.z());
 
             if (dx <= (rNew + rExisting) && dz <= (rNew + rExisting)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public static void activate(ServerLevel world, BlockPos pos, LoaderTier tier) {
@@ -66,13 +64,15 @@ public class ChunkLoaderManager {
         ChunkPos centerChunk = ChunkPos.containing(pos);
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {
-                // Accessors: .x() and .z()
                 addChunkTicket(world, new ChunkPos(centerChunk.x() + x, centerChunk.z() + z));
             }
         }
         LoadstoneData state = getState(world);
         state.activeLoaders.put(pos, tier);
         state.setDirty();
+
+        world.updateNeighborsAt(pos, world.getBlockState(pos).getBlock());
+        world.sendBlockUpdated(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
         ServerNetworking.broadcastUpdate(world, pos, tier);
     }
 
@@ -103,6 +103,8 @@ public class ChunkLoaderManager {
             }
         }
 
+        world.updateNeighborsAt(pos, world.getBlockState(pos).getBlock());
+        world.sendBlockUpdated(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
         ServerNetworking.broadcastUpdate(world, pos, null);
     }
 

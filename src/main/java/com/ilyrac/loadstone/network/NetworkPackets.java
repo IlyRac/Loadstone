@@ -8,5 +8,6 @@ public final class NetworkPackets {
     public static void Initializer() {
         PayloadTypeRegistry.clientboundPlay().register(LoaderUpdateS2CPacket.TYPE, LoaderUpdateS2CPacket.STREAM_CODEC);
         PayloadTypeRegistry.clientboundPlay().register(LoaderSnapshotS2CPacket.TYPE, LoaderSnapshotS2CPacket.STREAM_CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(InteractionParticleS2CPacket.TYPE, InteractionParticleS2CPacket.STREAM_CODEC);
     }
 }

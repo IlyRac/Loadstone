@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "com.ilyrac.loadstone.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"mixins": [],
+	"mixins": [
+		"LodestoneStateMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},

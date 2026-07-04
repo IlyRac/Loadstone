@@ -17,7 +17,6 @@ public final class ServerNetworking {
 
     private ServerNetworking() {}
 
-    // Call this from Loadstone.onInitialize()
     public static void Initializer() {
         ServerPlayConnectionEvents.JOIN.register((handler, _, _) -> {
             ServerPlayer player = handler.getPlayer();
@@ -25,7 +24,6 @@ public final class ServerNetworking {
         });
     }
 
-    // Broadcast a single update to players tracking the pos
     public static void broadcastUpdate(ServerLevel world, BlockPos pos, LoaderTier tier) {
         for (ServerPlayer player : PlayerLookup.tracking(world, pos)) {
             LoaderUpdateS2CPacket payload;
@@ -36,7 +34,6 @@ public final class ServerNetworking {
         }
     }
 
-    // Send full snapshot to a single player
     public static void sendSnapshotTo(ServerPlayer player) {
         Map<BlockPos, LoaderTier> snapshot = ChunkLoaderManager.snapshot(player.level());
         List<LoaderUpdateS2CPacket> entries = snapshot.entrySet().stream()
@@ -45,5 +42,12 @@ public final class ServerNetworking {
 
         LoaderSnapshotS2CPacket payload = new LoaderSnapshotS2CPacket(entries);
         ServerPlayNetworking.send(player, payload);
+    }
+
+    public static void broadcastInteractionParticle(ServerLevel world, BlockPos pos, LoaderTier tier) {
+        InteractionParticleS2CPacket payload = new InteractionParticleS2CPacket(pos, tier.ordinal());
+        for (ServerPlayer player : PlayerLookup.tracking(world, pos)) {
+            ServerPlayNetworking.send(player, payload);
+        }
     }
 }

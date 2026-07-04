@@ -1,7 +1,10 @@
 package com.ilyrac.loadstone.client;
 
 import com.ilyrac.loadstone.loader.LoaderTier;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -30,6 +33,15 @@ public final class ClientLoaderCache {
 
     public static Map<BlockPos, LoaderTier> snapshot() {
         return Map.copyOf(CACHE);
+    }
+
+    public static void refreshBlockVisuals(BlockPos pos) {
+        Minecraft mc = Minecraft.getInstance();
+        //noinspection deprecation
+        if (mc.level != null && mc.level.hasChunkAt(pos)) {
+            BlockState state = mc.level.getBlockState(pos);
+            mc.level.sendBlockUpdated(pos, state, state, 3);
+        }
     }
 }
 

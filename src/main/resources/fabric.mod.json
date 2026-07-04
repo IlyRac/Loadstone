@@ -25,6 +25,9 @@
 		],
 		"client": [
 			"com.ilyrac.loadstone.client.LoadstoneClient"
+		],
+		"modmenu": [
+			"com.ilyrac.loadstone.client.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -39,5 +42,8 @@
 		"minecraft": "~26.2",
 		"java": ">=25",
 		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
 	}
 }
