@@ -73,7 +73,6 @@ public class PlayerInteractHandler {
         });
     }
 
-    // Notice we removed particles entirely from the server!
     private static void playServerSounds(ServerLevel world, BlockPos pos, LoaderTier tier) {
         switch (tier) {
             case IRON -> world.playSound(null, pos, SoundEvents.IRON_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);

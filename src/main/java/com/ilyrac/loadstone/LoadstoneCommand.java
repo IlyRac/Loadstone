@@ -75,7 +75,7 @@ public final class LoadstoneCommand {
         ));
     }
 
-    // Tab-completion helper for our custom Loader Tiers
+    // Tab-completion helper
     private static CompletableFuture<Suggestions> suggestTiers(com.mojang.brigadier.context.CommandContext<CommandSourceStack> context, SuggestionsBuilder builder) {
         return SharedSuggestionProvider.suggest(
                 Arrays.stream(LoaderTier.values()).map(tier -> tier.name().toLowerCase(Locale.ROOT)),
@@ -101,9 +101,6 @@ public final class LoadstoneCommand {
             return 0;
         }
 
-        // =========================================================================
-        // FIX: Check if the loader is ALREADY running this exact tier
-        // =========================================================================
         boolean wasAlreadyActive = ChunkLoaderManager.isActive(world, pos);
         LoaderTier oldTier = wasAlreadyActive ? ChunkLoaderManager.snapshot(world).get(pos) : null;
 
@@ -117,7 +114,7 @@ public final class LoadstoneCommand {
             ChunkLoaderManager.deactivate(world, pos);
         }
 
-        // 2. Logic check: Now check for overlaps from OTHER nearby loaders
+        // 2. Logic check: check for overlaps from OTHER nearby loaders
         if (ChunkLoaderManager.canActivate(world, pos, tier)) {
             // If it overlaps with an external loader, rollback and turn the old one back on
             if (wasAlreadyActive) {

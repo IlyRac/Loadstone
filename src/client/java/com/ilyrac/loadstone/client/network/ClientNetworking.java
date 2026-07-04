@@ -29,7 +29,6 @@ public final class ClientNetworking {
                 }
 
                 // 2. REFRESH TINT IMMEDIATELY
-                // This forces the renderer to see the new cache state we just set
                 ClientLoaderCache.refreshBlockVisuals(pos);
 
                 // 3. SPAWN INTERACTION PARTICLES (If enabled in config and loader was added)
@@ -41,7 +40,7 @@ public final class ClientNetworking {
                     switch (tier) {
                         case IRON -> {
                             for (int i = 0; i < 15; i++) {
-                                client.level.addParticle(ParticleTypes.SMOKE,
+                                client.level.addParticle(ParticleTypes.LARGE_SMOKE,
                                         x, y, z, (Math.random() - 0.5) * 0.35, Math.random() * 0.35, (Math.random() - 0.5) * 0.35);
                             }
                         }

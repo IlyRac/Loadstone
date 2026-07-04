@@ -33,7 +33,7 @@ public class LodestoneParticleMixin {
         LoadstoneConfig.AmbientMode mode = LoadstoneConfig.getInstance().ambientParticles;
         if (mode == LoadstoneConfig.AmbientMode.OFF) return;
 
-        // 4. Safely check your cache
+        // 4. Safely check cache
         Optional<LoaderTier> activeTier = ClientLoaderCache.get(pos);
         if (activeTier.isEmpty()) return;
 
@@ -67,7 +67,7 @@ public class LodestoneParticleMixin {
                     double velY = random.nextDouble() * 0.03 + 0.02;
                     double velZ = (random.nextDouble() - 0.5) * 0.08;
 
-                    level.addParticle(ParticleTypes.SMOKE, x + offsetX, y + offsetY, z + offsetZ, velX, velY, velZ);
+                    level.addParticle(ParticleTypes.LARGE_SMOKE, x + offsetX, y + offsetY, z + offsetZ, velX, velY, velZ);
                 }
             }
             case DIAMOND -> {
