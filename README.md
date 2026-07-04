@@ -1,7 +1,7 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <p align="center">
   <a href="https://ko-fi.com/ilyrac" target="_blank">
-    <img src="https://cdn.modrinth.com/data/cached_images/f69e87c0cfd3306fa11c3da477e51544c8d380e2_0.webp" alt="Support Me" style="margin-bottom: 10px;">
+    <img src="https://github.com/user-attachments/assets/fdc9037e-81d5-4b21-a380-277b84c61784" alt="Support Me" style="margin-bottom: 10px;">
   </a>
   <a href="https://www.curseforge.com/members/ilyrac/projects" target="_blank">
     <img src="https://i.imgur.com/rpoyjVG.png" alt="CurseForge" style="margin: 0 5px;">
