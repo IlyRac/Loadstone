@@ -37,6 +37,7 @@
     </li>
     <li><strong>Persistent Loader State:</strong> Loaders are saved securely to disk and manage chunk ticketing flawlessly across server restarts.</li>
     <li><strong>Smart Material System:</strong> Items are consumed on activation and safely returned on deactivation or tier swap.</li>
+    <li><strong>Redstone Integration:</strong> Active loaders can be read by Comparators, making it easy to wire them into Redstone systems.</li>
     <li><strong>Visual Feedback:</strong> Unique particle effects and color tints per tier.</li>
     <li><strong>Real-Time HUD:</strong> Compact, configurable overlay showing loader status, tier, and chunk coverage.</li>
     <li><strong>Operator Commands:</strong> Powerful server administration tools to manage, audit, and force-toggle loaders instantly via commands.</li>
@@ -64,11 +65,16 @@
     <li>Right-click with a different valid material to change tier seamlessly (the old material is returned).</li>
   </ul>
 
+<h3>Redstone Output</h3>
+<ul>
+  <li>Placing a <strong>Redstone Comparator</strong> facing away from a Lodestone will output a signal strength based on its running status and tier.</li>
+</ul>
+
 <h3>Admin / Operator Commands (Cheats On)</h3>
   <p>Server admins can manage active loaders globally using the following commands:</p>
   <ul>
     <li><code>/loadstone list</code> — View all active chunks globally with click-to-teleport shortcuts.</li>
-    <li><code>/loadstone activate &lt;x y z&gt; &lt;tier&gt;</code> — Remotely activate or upgrade/downgrade a vanilla Lodestone block. Safe guards prevent duplicate spamming, self-overlap loops, or accidentally dropping items if the tier is already matching.</li>
+    <li><code>/loadstone activate &lt;x y z&gt; &lt;tier&gt;</code> — Remotely activate or upgrade/downgrade a vanilla Lodestone block.</li>
     <li><code>/loadstone deactivate &lt;x y z&gt;</code> — Turn off a specific loader remotely.</li>
     <li><code>/loadstone deactivate all</code> — Clear every active loader ticket on the server instantly.</li>
   </ul>
@@ -80,6 +86,7 @@
   <img style="max-width:100%; margin-bottom:10px;" alt="Hud" src="https://github.com/user-attachments/assets/2ca1e77a-19ee-4d2e-9241-10e0c641fd38" />
   <img style="max-width:100%; margin-bottom:10px;" alt="Tiers" src="https://github.com/user-attachments/assets/e3c42e7c-2467-4e43-b379-2ecd425f30c0" />
   <img style="max-width:100%; margin-bottom:10px;" alt="Tint" src="https://github.com/user-attachments/assets/cd9f50d5-37bf-433a-9775-d5d99bad9678" />
+  <img style="max-width:100%; margin-bottom:10px;" alt="Redstone" src="https://github.com/user-attachments/assets/33755e98-2a3e-486f-9c3f-2a4f766b434e" />
   <img style="max-width:100%; margin-bottom:10px;" alt="ConfigScreen" src="https://github.com/user-attachments/assets/665289f5-30b1-4054-a3ac-2728291898c7" />
   <img style="max-width:100%;" alt="Commands" src="https://github.com/user-attachments/assets/95e1b092-fe68-4e5c-80b8-4a12a154a57b" />
 
