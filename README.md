@@ -1,3 +1,4 @@
+<!--suppress HtmlDeprecatedAttribute -->
 <p align="center">
   <a href="https://ko-fi.com/ilyrac" target="_blank">
     <img src="https://cdn.modrinth.com/data/cached_images/f69e87c0cfd3306fa11c3da477e51544c8d380e2_0.webp" alt="Support Me" style="margin-bottom: 10px;">
@@ -17,10 +18,10 @@
 
 <h1>🧭 Loadstone – Chunk Loader (v3.0)</h1>
 
-  <p>Tired of your farms, machines, or redstone contraptions stopping when you walk away?</p>
-  <p><strong>Loadstone</strong> turns vanilla <strong>Lodestones</strong> into simple, reliable <strong>chunk loaders</strong> — activate a Lodestone with a material and the <strong>targeted chunks</strong> stay loaded, so everything in range continues running automatically.</p>
+  <p>Tired of automation, machinery, or redstone contraptions stopping when you walk away?</p>
+  <p><strong>Loadstone</strong> turns vanilla <strong>Lodestones</strong> into simple, reliable <strong>chunk loaders</strong>. By activating a Lodestone with a specific material,<strong> the targeted chunks </strong> remain continuously active so everything in range keeps running</p>
 
-<img src="https://cdn.modrinth.com/data/cached_images/76fb377ac98223ec58a1257021e11cb4f1198da6.gif" alt="Interacting" style="max-width:100%;">
+<img src="https://i.imgur.com/d7AJBGi.gif" alt="Interacting" style="max-width:100%;">
 
 <hr>
 
@@ -75,17 +76,19 @@
 
 <details>
   <summary>🖼️ Gallery</summary>
-  <img src="https://cdn.modrinth.com/data/cached_images/a3747ff5ca50ecd676677b55cbbbbfaed73e4ab3.png" alt="HUD" style="max-width:100%; margin-bottom:10px;">
-  <img src="https://cdn.modrinth.com/data/cached_images/f5ff46311dc6113f7ee98bbb6741aeb419626ccd.png" alt="Tiers" style="max-width:100%;">
+  <img src="https://imgur.com/4o0KHp0.png" alt="HUD" style="max-width:100%; margin-bottom:10px;">
+  <img src="https://imgur.com/eABNfGt.png" alt="Tiers" style="max-width:100%; margin-bottom:10px;">
+  <img src="https://imgur.com/na5EzLn.png" alt="Tint" style="max-width:100%; margin-bottom:10px;">  
+  <img src="https://imgur.com/YjbPeB8.png" alt="Config" style="max-width:100%; margin-bottom:10px;">
+  <img src="https://imgur.com/L2dWQLy.png" alt="Commands" style="max-width:100%;">
 </details>
-
-
 
 <hr>
 
 <h2>📌 Notes</h2>
 <ul>
-  <li>Loaders keep areas active <strong>24/7</strong>. Use responsibly to avoid performance issues.</li>
-  <li><strong>External Chunks:</strong> Lodestones only manage chunks they are explicitly attached to. Chunks already loaded by external means (vanilla <code>/forceload</code>, server utilities) are not automatically owned. Activating a Lodestone inside those chunks overrides and attaches them to the Loadstone tracking map.</li>
-  <li>⚠️ <strong>Legacy Warning:</strong> The old <code>v1.0</code> release is highly unstable and can cause serious issues, including performance lag and "ghost-loaded" chunks. It is strongly recommended to avoid using it. If you have previously used v1.0 in your world and wish to update, refreshing your world's loaded chunks is recommended.</li>
+  <li>⚠️ <strong>Performance:</strong> Loaders keep areas continuously active as long as the world is running. Use them responsibly to avoid performance lag.</li>
+  <li>⚠️ <strong>Loading Behavior:</strong> Loaders force chunks to stay active at the <strong>"entity processing"</strong> level. This keeps standard mechanics like automation, redstone, and entity processing running continuously. However, any gameplay mechanics that inherently require player proximity to function will not trigger.</li>
+  <li>⚠️ <strong>External Chunks:</strong> Lodestones only manage chunks they are explicitly attached to. Chunks already loaded by external means (vanilla <code>/forceload</code>, server utilities) are not automatically owned. Activating a Lodestone inside those chunks overrides and attaches them to the Loadstone tracking map.</li>
+  <li>⚠️ <strong>Legacy Warning:</strong> The old <code>v1.0</code> release is highly unstable and can cause serious issues, including performance lag and "ghost-loaded" chunks. It is strongly recommended to avoid using it. If you have previously used v1.0 in your worlds, refreshing your loaded chunks is recommended.</li>
 </ul>
