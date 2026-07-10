@@ -99,5 +99,6 @@
   <li>⚠️ <strong>Performance:</strong> Loaders keep areas continuously active as long as the world is running. Use them responsibly to avoid performance lag.</li>
   <li>⚠️ <strong>Loading Behavior:</strong> Loaders force chunks to stay active at the <strong>"entity processing"</strong> level. This keeps standard mechanics like automation, redstone, and entity processing running continuously. However, any gameplay mechanics that inherently require player proximity to function will not trigger.</li>
   <li>⚠️ <strong>External Chunks:</strong> Lodestones only manage chunks they are explicitly attached to. Chunks already loaded by external means (vanilla <code>/forceload</code>, server utilities) are not automatically owned. Activating a Lodestone inside those chunks overrides and attaches them to the Loadstone tracking map.</li>
+  <li>⚠️ <strong>Resource Packs:</strong> Using a custom resource pack that modifies the vanilla Lodestone model may override or break the tier-based block tinting feature.</li>
   <li>⚠️ <strong>Legacy Warning:</strong> The old <code>v1.0</code> release is highly unstable and can cause serious issues, including performance lag and "ghost-loaded" chunks. It is strongly recommended to avoid using it. If you have previously used v1.0 in your worlds, refreshing your loaded chunks is recommended.</li>
 </ul>
