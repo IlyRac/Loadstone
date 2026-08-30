@@ -71,12 +71,12 @@
 </ul>
 
 <h3>Admin / Operator Commands (Cheats On)</h3>
-  <p>Server admins can manage active loaders globally using the following commands:</p>
+  <p>Server admins can manage active loaders in the current dimension using the following commands:</p>
   <ul>
-    <li><code>/loadstone list</code> — View all active chunks globally with click-to-teleport shortcuts.</li>
-    <li><code>/loadstone activate &lt;x y z&gt; &lt;tier&gt;</code> — Remotely activate or upgrade/downgrade a vanilla Lodestone block.</li>
-    <li><code>/loadstone deactivate &lt;x y z&gt;</code> — Turn off a specific loader remotely.</li>
-    <li><code>/loadstone deactivate all</code> — Clear every active loader ticket on the server instantly.</li>
+    <li><code>/loadstone list</code> — View all active Loadstone loaders in the current dimension with click-to-teleport shortcuts.</li>
+    <li><code>/loadstone activate &lt;x y z&gt; &lt;tier&gt;</code> — Remotely activate or upgrade/downgrade a vanilla Lodestone block in the current dimension.</li>
+    <li><code>/loadstone deactivate &lt;x y z&gt;</code> — Turn off a specific loader in the current dimension.</li>
+    <li><code>/loadstone deactivate all</code> — Clear every active Loadstone loader in the current dimension.</li>
   </ul>
 </details>
 
