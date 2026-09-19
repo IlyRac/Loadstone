@@ -2,7 +2,6 @@ package com.ilyrac.loadstone;
 
 import com.ilyrac.loadstone.loader.ChunkLoaderManager;
 import com.ilyrac.loadstone.loader.LoaderTier;
-import com.ilyrac.loadstone.network.ServerNetworking;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
@@ -127,9 +126,6 @@ public final class LoadstoneCommand {
         // 3. Force load the new tier chunks on the tracking map
         ChunkLoaderManager.activate(world, pos, tier);
 
-        // 4. Synchronize to clients so the block updates colors immediately
-        ServerNetworking.broadcastUpdate(world, pos, tier);
-
         source.sendSuccess(() -> Component.literal(String.format("Successfully forced activation of %s tier loader at [%d, %d, %d].",
                         tier.name(), pos.getX(), pos.getY(), pos.getZ()))
                 .withStyle(ChatFormatting.GREEN), true);
@@ -191,10 +187,7 @@ public final class LoadstoneCommand {
         int count = loaders.size();
         Set<BlockPos> positions = Set.copyOf(loaders.keySet());
 
-        positions.forEach(pos -> {
-            ChunkLoaderManager.deactivate(world, pos);
-            ServerNetworking.broadcastUpdate(world, pos, null);
-        });
+        positions.forEach(pos -> ChunkLoaderManager.deactivate(world, pos));
 
         source.sendSuccess(() -> Component.literal(String.format("Successfully deactivated and cleared all %d loaders.", count))
                 .withStyle(ChatFormatting.GREEN), true);
@@ -211,7 +204,6 @@ public final class LoadstoneCommand {
         }
 
         ChunkLoaderManager.deactivate(world, pos);
-        ServerNetworking.broadcastUpdate(world, pos, null);
 
         source.sendSuccess(() -> Component.literal(String.format("Deactivated loader at [%d, %d, %d].", pos.getX(), pos.getY(), pos.getZ()))
                 .withStyle(ChatFormatting.GREEN), true);

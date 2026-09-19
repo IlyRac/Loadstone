@@ -22,7 +22,7 @@ public class Loadstone implements ModInitializer {
 		LoadstoneCommand.Initializer();
 
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
-			if (server.getTickCount() % 5 == 0) { // 100 ticks = 5 seconds
+			if (server.getTickCount() % 100 == 0) { // 100 ticks = 5 seconds
 				for (ServerLevel level : server.getAllLevels()) {
 					ChunkLoaderManager.validateAllLoaders(level);
 				}
