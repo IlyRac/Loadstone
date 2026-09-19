@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -42,7 +43,8 @@ public class PlayerInteractHandler {
                     ChunkLoaderManager.deactivate((ServerLevel) world, pos);
                     playServerSounds((ServerLevel) world, pos, current);
 
-                    player.swing(hand, true);
+                    // Added SwingAnimation.DEFAULT
+                    player.swing(hand, SwingAnimation.DEFAULT, true);
                     return InteractionResult.SUCCESS;
                 }
                 return InteractionResult.PASS;
@@ -57,7 +59,8 @@ public class PlayerInteractHandler {
                             );
                         }
 
-                        player.swing(hand, true);
+                        // Added SwingAnimation.DEFAULT
+                        player.swing(hand, SwingAnimation.DEFAULT, true);
                         return InteractionResult.FAIL;
                     }
 
